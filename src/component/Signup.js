@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
 
     const[email, setEmail]= useState("");
     const[password, setPassword] = useState("");
-
+    const[name, setName] = useState("")
+    
     const history = useNavigate();
-
+    const handleName = (e) => {
+        setName(e.target.value);
+        console.log(e.target.value)
+    }
+    
     const handleEmail = (e) => {
         setEmail(e.target.value);
         console.log(e.target.value)
@@ -28,13 +33,13 @@ const Login = () => {
         }
         axios({
             method:"POST",
-            url:"https://reqres.in/api/login",
+            url:"https://reqres.in/api/register",
             data:data
         })
         .then(res=>{
             console.log(res);
-            alert("Login Successfull")
-            history('/')
+            alert("SignUp Successfull. Please Login to Continue")
+            history('/login')
         })
         .catch(err =>{
             console.log(err);
@@ -47,7 +52,8 @@ const Login = () => {
                 <div className="col-sm-6 my-4 ">
                     <div className="card innercolor">
                         <div className="card-body" >
-                            <h3 className="text-center my-3 ">Login</h3>
+                            <h3 className="text-center my-3 ">SignUp</h3>
+                            <input className="form-control my-3" placeholder="Enter Your Name" onChange={(e)=> handleName(e)}></input>
                             <input className="form-control my-3" placeholder="Enter Your Email" onChange={(e)=> handleEmail(e)}></input>
                             <input type ="password" className="form-control " placeholder="Enter Your Password" onChange={(e) => handlePassword(e)}></input>
                             <div className="">
@@ -55,7 +61,7 @@ const Login = () => {
                            
                             </div>
                             <div>
-                            <p className="text-center">Don't have an account? Kindly SignUp<br></br><button className="btn btn-warning mt-2">SignUp</button></p>
+                            <p className="text-center">Already have an account? Please Login<br></br><button className="btn btn-warning mt-2">Login</button></p>
                             </div>
                         </div>
                     </div>
@@ -65,4 +71,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default SignUp;
