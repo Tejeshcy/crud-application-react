@@ -9,6 +9,11 @@ const SignUp = () => {
     const[name, setName] = useState("")
     
     const history = useNavigate();
+
+    const handleLoginButton = () =>{
+        history("/login")
+    }
+
     const handleName = (e) => {
         setName(e.target.value);
         console.log(e.target.value)
@@ -61,7 +66,7 @@ const SignUp = () => {
                            
                             </div>
                             <div>
-                            <p className="text-center">Already have an account? Please Login<br></br><button className="btn btn-warning mt-2">Login</button></p>
+                            <p className="text-center" onClick={handleLoginButton}>Already have an account? Please Login<br></br><button className="btn btn-warning mt-2">Login</button></p>
                             </div>
                         </div>
                     </div>

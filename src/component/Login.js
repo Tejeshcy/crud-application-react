@@ -9,6 +9,10 @@ const Login = () => {
 
     const history = useNavigate();
 
+    const handleSignupButton = () =>{
+        history("/signup")
+    }
+
     const handleEmail = (e) => {
         setEmail(e.target.value);
         console.log(e.target.value)
@@ -32,9 +36,13 @@ const Login = () => {
             data:data
         })
         .then(res=>{
-            console.log(res);
+            console.log(res.data);
             alert("Login Successfull")
-            history('/')
+            if(res.data){
+                window.localStorage.setItem("token", res.data.token)
+                history('/')
+            }
+            
         })
         .catch(err =>{
             console.log(err);
@@ -52,10 +60,10 @@ const Login = () => {
                             <input type ="password" className="form-control " placeholder="Enter Your Password" onChange={(e) => handlePassword(e)}></input>
                             <div className="">
                                 <button className="submitButton" onClick={handleLogin}>Submit</button>
-                           
+                                
                             </div>
                             <div>
-                            <p className="text-center">Don't have an account? Kindly SignUp<br></br><button className="btn btn-warning mt-2">SignUp</button></p>
+                            <p className="text-center" onClick={handleSignupButton}>Don't have an account? Kindly SignUp<br></br><button className="btn btn-warning mt-2">SignUp</button></p>
                             </div>
                         </div>
                     </div>
