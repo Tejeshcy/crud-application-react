@@ -18,3 +18,20 @@
     font-weight: 400;
     margin-bottom: 2px;
 }
+
+.list{
+  justify-content: space-between;
+}
+
+.profileImg{
+  width: 50px;
+  border-radius: 4px;
+}
+
+.layer{
+  border-radius: 40px;
+}
+
+.card{
+  border: 0px;
+}

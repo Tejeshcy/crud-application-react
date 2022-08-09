@@ -7,14 +7,14 @@ const Home = () => {
 
     const history= useNavigate();
 
-    useEffect(() => {
-        const token = window.localStorage.getItem("token")
-        if (token == null){
-            alert("Please Login to continue")
-            history("/login")
-        }
+    // useEffect(() => {
+    //     const token = window.localStorage.getItem("token")
+    //     if (token == null){
+    //         alert("Please Login to continue")
+    //         history("/login")
+    //     }
 
-    },[history])
+    // },[])
 
     return(
         <div>
