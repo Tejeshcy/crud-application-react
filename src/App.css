@@ -28,10 +28,30 @@
   border-radius: 4px;
 }
 
-.layer{
-  border-radius: 40px;
+.list{
+  border-radius: 20px;
+
 }
 
-.card{
-  border: 0px;
+.list:hover{
+  cursor: pointer;
+  background-color: rgb(66, 209, 109) !important;
+}
+
+.editIcon{
+  width: 40px;
+  margin-right: 10px;
+}
+
+.deleteIcon{
+  width: 40px;
+}
+
+.name:hover {
+    color: gray;
+
+}
+
+.body{
+  border-radius: 20px;
 }
